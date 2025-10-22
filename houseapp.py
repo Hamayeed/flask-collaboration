@@ -20,8 +20,17 @@ def login():
  print(f"User {username} attempting login")
  return jsonify({
  "message": f"User {username} logged in successfully",
- "status": "success"
- })
+ "status": "success"})
+ 
+@app.route('/dashboard')
+def dashboard():
+ print("Dashboard accessed by user")
+ return jsonify({
+ "message": "Welcome to Dashboard",
+ "data": {
+ "total_properties": 150,
+ "new_listings": 12
+ }})
 
 if __name__ == '__main__':
  app.run(debug=True, port=5000)
